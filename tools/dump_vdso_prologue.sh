@@ -16,7 +16,6 @@ entrypoint=$(readelf -h /tmp/vdso.bin \
 
 echo "[*] entrypoint: $entrypoint"
 
-objdump -M intel -D /tmp/vdso.bin \
-		| grep -A 5 " $entrypoint:"
+objdump -M intel -D /tmp/vdso.bin | grep -A 5 "$entrypoint:"
 
 rm /tmp/vdso.bin
