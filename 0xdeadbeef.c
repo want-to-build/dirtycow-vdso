@@ -244,7 +244,7 @@ static int build_vdso_patch(void *vdso_addr, struct prologue *prologue)
 	p = vdso_patch[0].addr;
 	for (i = 0; i < payload_len; i++) {
 		if (p[i] != '\x00') {
-			fprintf(stderr, "failed to find a place for the payload\n");
+			fprintf(stderr, "failed to find %iB for the payload, error after %iB\n", payload_len, i);
 			return -1;
 		}
 	}
